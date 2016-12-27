@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 
-class GroupAnagrams {
+public class GroupAnagrams {
 	public List<List<String>> anagrams(String[] strs) {
 		HashMap<String, List<String>> group = new HashMap<>();
 		List<List<String>> res = new ArrayList<>();
