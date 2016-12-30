@@ -33,4 +33,31 @@ public class BinaryTreePostorderTraversal {
         }
         return result;
     }
+
+    public List<Integer> postorderTraversal2(TreeNode root) {
+        ArrayList<Integer> result = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+        if(root == null) return result;
+        TreeNode node = root;
+        TreeNode pre;
+        do {
+            while (node != null){ //左边的节点都进栈
+                stack.push(node);
+                node = node.left;
+            }
+            pre = null;
+            while (!stack.isEmpty()){
+                node = stack.peek();
+                //如果右子树访问过了或为空，则访问该节点
+                if(node.right == pre){
+                    result.add(stack.pop().val);
+                    pre = node;
+                }else {
+                    node = node.right;
+                    break; //先处理右子树
+                }
+            }
+        }while (!stack.isEmpty());
+        return result;
+    }
 }
