@@ -13,21 +13,21 @@ public class ConvertSortedListtoBinarySearchTree {
         int length = 0;
         ListNode node = head;
         while (node != null){
-            length ++;
+            length++;
             node = node.next;
         }
         cur = head;
-        return buildTree(0, length-1);
+        return buildTree(length);
     }
 
-    private TreeNode buildTree(int start, int end){
-        if(start > end) return null;
-        int mid = start + ((end - start)>>1);
-        TreeNode left = buildTree(start, mid-1);
+    private TreeNode buildTree(int length){
+        if (length <= 0) return null;
+        TreeNode left = buildTree(length / 2);
         TreeNode root = new TreeNode(cur.val);
-        root.left = left;
         cur = cur.next;
-        root.right = buildTree(mid+1, end);
+        TreeNode right = buildTree(length - 1 - length/2);
+        root.left = left;
+        root.right = right;
         return root;
     }
 }
