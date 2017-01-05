@@ -12,22 +12,23 @@ public class ConvertSortedListtoBinarySearchTree {
     public TreeNode sortedListToBST(ListNode head) {
         int length = 0;
         ListNode node = head;
-        while (node != null){
-            length++;
+        while(node != null){
+            length ++ ;
             node = node.next;
         }
         cur = head;
-        return buildTree(length);
+        return buildTree(0,length-1);
     }
 
-    private TreeNode buildTree(int length){
-        if (length <= 0) return null;
-        TreeNode left = buildTree(length / 2);
+    //自底向上构建树
+    private TreeNode buildTree(int start,int end){
+        if(start > end) return null;
+        int mid = start + ((end-start)>>1);
+        TreeNode left = buildTree(start,mid-1);
         TreeNode root = new TreeNode(cur.val);
         cur = cur.next;
-        TreeNode right = buildTree(length - 1 - length/2);
         root.left = left;
-        root.right = right;
+        root.right = buildTree(mid+1,end);
         return root;
     }
 }
