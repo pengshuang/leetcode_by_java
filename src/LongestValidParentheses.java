@@ -23,7 +23,7 @@ public class LongestValidParentheses {
                     if(stack.isEmpty()){
                         max = Math.max(max, i - last);
                     } else {
-                        max = Math.max(max, i - stack.pop());
+                        max = Math.max(max, i - stack.peek());
                     }
                 }
             }
