@@ -7,7 +7,7 @@ public class ValidNumber {
         if (s.length() < 1 || s.charAt(s.length()-1) == 'e') return false;
         String[] sp = s.split("e");
         if (sp.length > 2 || sp.length < 1) return false;
-        // 如果是小数
+        // 验证 e 的前半部分,可以允许是小数
         if (!validNumberic(sp[0], false)) return false;
         // 如果 e 后半部分是整数
         if (sp.length == 1 || (sp.length == 2 && validNumberic(sp[1], true))) return true;
