@@ -1,5 +1,6 @@
 /**
  * Created by pengshuang on 17/1/16.
+ * 深度遍历树
  */
 public class SumRoottoLeafNumbers {
     private int sum;
