@@ -13,7 +13,7 @@ public class MaximalRectangle {
         if (m == 0) return 0;
         int[][] height = new int[n][m];
 
-        //
+        // 将这个长方形 类比为 直方图
         for (int i = 0; i < n; i++){
             for (int j = 0; j < m; j++){
                 if (i == 0)
