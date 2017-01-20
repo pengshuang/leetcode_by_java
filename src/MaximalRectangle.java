@@ -22,24 +22,24 @@ public class MaximalRectangle {
                     height[i][j] = ((matrix[i][j] == '1') ? height[i-1][j] + 1 : 0);
             }
         }
-
-        int answer = 0;
-        for (int  i = 0; i < n; i++){
+        int max = 0;
+        for (int  i = 0; i < n; i++) {
             Stack<Integer> S = new Stack<>();
-            for (int j = 0; j < m; j++){
-                while (!S.isEmpty() && height[i][j] < height[i][S.peek()]) {
-                    int pos = S.peek();
-                    S.pop();
-                    answer = Math.max(answer, height[i][pos]*(S.empty() ? j : j-S.peek()-1));
+            for (int j = 0; j < m; j++) {
+                int curt = (j == height[i].length) ? -1 : height[i][j];
+                while (!S.isEmpty() && curt < height[i][S.peek()]) {
+                    int h = height[i][S.pop()];
+                    int w = S.isEmpty() ? j : j - S.peek() - 1;
+                    max = Math.max(max, h * w);
                 }
                 S.push(j);
             }
-            while (!S.empty()){
+            while (!S.empty()) {
                 int pos = S.peek();
                 S.pop();
-                answer = Math.max(answer, height[i][pos]*(S.empty()? m : m-S.peek()-1));
+                max = Math.max(max, height[i][pos]*(S.empty()? m : m-S.peek()-1));
             }
         }
-        return answer;
+        return max;
     }
 }
