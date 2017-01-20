@@ -25,8 +25,8 @@ import java.util.Stack;
  (6).  这时index = len. 我们直接到第二个分支，把1， 2， 3 这三个直方计算了。
  (7).  栈为空，index = len 会入栈，然后index++ 越界，下一次就退出了。
  这里我们不可以把index < len 放在第一个判断的前面来判断，因为这样的话，当index = len,
-
- 会直接再进入第二个分支，引发越界错误。其实我们就是假设在整个直方的最后存在一个height = 0的直方，所以我们要在一直计算到Index = len为止。而且因为它高度为0比谁都要低，所以可以把这个索引直接入栈。
+ 会直接再进入第二个分支，引发越界错误。其实我们就是假设在整个直方的最后存在一个height = 0的直方，
+ 所以我们要在一直计算到Index = len为止。而且因为它高度为0比谁都要低，所以可以把这个索引直接入栈。
  */
 public class LargestRectangleinHistogram {
     public int largestRectangleArea(int[] heights) {
