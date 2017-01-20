@@ -2,6 +2,7 @@ import java.util.Stack;
 
 /**
  * Created by pengshuang on 17/1/20.
+ * 类比 LargestRectangleinHistogram
  */
 public class MaximalRectangle {
     public int maximalRectangle(char[][] matrix) {
