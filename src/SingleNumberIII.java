@@ -12,7 +12,7 @@ import java.util.List;
  * 可知 a & lowbit与b & lowbit的结果一定不同
  * 通过这种方式，即可将a与b拆分开来
  */
-public class singleNumberIII {
+public class SingleNumberIII {
     public int[] singleNumber(int[] nums) {
         int xor = 0;
         for (int i=0;i<nums.length;i++){

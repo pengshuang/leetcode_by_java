@@ -26,7 +26,7 @@ public class SingleNumberII {
             for (int j=0;j<nums.length;j++){
                 cnt[i] += (nums[j]>>i) & 0x1;
             }
-            single |= cnt[i] % 3 << i;
+            single += cnt[i] % 3 << i;
         }
         return single;
     }
