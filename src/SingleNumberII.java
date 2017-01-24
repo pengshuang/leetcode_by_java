@@ -24,6 +24,7 @@ public class SingleNumberII {
         int single = 0;
         for (int i=0;i<32;i++){
             for (int j=0;j<nums.length;j++){
+                // need to & 1 to clear other bits
                 cnt[i] += (nums[j]>>i) & 0x1;
             }
             single += cnt[i] % 3 << i;
