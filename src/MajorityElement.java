@@ -14,7 +14,8 @@ public class MajorityElement {
         for(int i=1; i<num.length; i++){
             if(num[i] == prev){
                 count++;
-                if(count > num.length/2) return num[i];
+                if(count > num.length/2)
+                    return num[i];
             }else{
                 count=1;
                 prev = num[i];
