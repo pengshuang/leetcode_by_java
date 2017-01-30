@@ -1,9 +1,11 @@
+package interview;
+
 import java.util.Scanner;
 
 /**
  * Created by pengshuang on 17/1/29.
  */
-public class xipai {
+public class Xipai {
     public static void main(String[] args){
         Scanner in = new Scanner(System.in);
         while (in.hasNext()){
