@@ -5,7 +5,9 @@ import java.util.List;
 
 /**
  * Created by pengshuang on 17/1/9.
+ * 带重复元素的全排列
  */
+
 public class PermutationsII {
     public List<List<Integer>> permuteUnique(int[] nums) {
         ArrayList<List<Integer>> res = new ArrayList<>();
