@@ -13,10 +13,12 @@ public class MaximumXOR {
     }
 
     private void buildTrie(Node root, int x) {
+         /*建前缀树的过程,需要31位 不包括符号位*/
         Node head = root;
         for (int i = 30; i >= 0; i--) {
             int bit = x & (1 << i);
             int flag = bit == 0 ? 0 : 1;
+            /*前缀树的基本构建过程，如果没有则添加，有的继续向下*/
             if (head.next[flag] == null) {
                 head.next[flag] = new Node();
             }
