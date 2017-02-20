@@ -20,4 +20,36 @@ public class PalindromeNumber {
         }
         return true;
     }
+
+    public boolean isPalindrome(String s){
+        if (s == null || s.length() == 0) {
+            return true;
+        }
+        int front = 0;
+        int end = s.length() - 1;
+        while (front < end) {
+            while (front < s.length() && !isvalid(s.charAt(front))){
+                front++;
+            }
+            if (front == s.length())
+                return true;
+            while (end >= 0 && !isvalid(s.charAt(end))){
+                end--;
+            }
+            if (end == 0)
+                return true;
+            if (Character.toLowerCase(front) == Character.toLowerCase(end)){
+                end--;
+                front++;
+            } else {
+                break;
+            }
+        }
+        return end <= front;
+    }
+
+    private boolean isvalid (char c) {
+        return Character.isLetter(c) || Character.isDigit(c);
+    }
+
 }
