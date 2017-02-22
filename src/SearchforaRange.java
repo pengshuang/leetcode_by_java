@@ -3,46 +3,51 @@
  * 二分查找法
  */
 public class SearchforaRange {
-    public int[] searchRange(int[] nums, int target) {
-        if (nums.length == 0) {
+    public int[] searchRange(int[] A, int target) {
+        if (A.length == 0) {
             return new int[]{-1, -1};
         }
-        int first = binarySearchForFirst(nums, target);
-        int last = binarySearchForLast(nums, target);
-        return new int[]{first, last};
+        int first = binarySearchForFirst(A,target);
+        int last = binarySearchForLast(A,target);
+        return new int[]{first,last};
     }
 
-    private int binarySearchForLast(int[] A, int target){
+    private int binarySearchForFirst(int[] A,int target){
         int left = 0;
         int right = A.length-1;
         int mid;
-        while(left < right){
-            mid = left + ((right-left+1)>>1);
-            if(A[mid] > target){
-                right = mid - 1;
-            }else {
+        while(left + 1 < right){
+            mid = left + ((right-left) / 2);
+            if(A[mid] >= target){
+                right = mid;
+            }else{	//A[mid] >= target
                 left = mid;
             }
         }
+
         if(A[left] == target)
             return left;
-        else
-            return -1;
+        else if(A[right] == target)
+            return right;
+        else return -1;
     }
 
-    private int binarySearchForFirst(int[] A, int target){
+    private int binarySearchForLast(int[] A,int target){
         int left = 0;
         int right = A.length-1;
         int mid;
-        while(left < right){
-            mid = left + ((right-left+1)>>1);
-            if(A[mid] < target){
-                left = mid + 1;
-            }else {
+        while(left + 1 < right){
+            mid = left + ((right-left) / 2);   //注意要加1
+            if(A[mid] <= target){
+                left = mid;
+            }else{	//A[mid] <= target 此处不能拆成两个条件
                 right = mid;
             }
         }
-        if(A[left] == target)
+
+        if(A[right] == target)
+            return right;
+        else if(A[left] == target)
             return left;
         else
             return -1;
