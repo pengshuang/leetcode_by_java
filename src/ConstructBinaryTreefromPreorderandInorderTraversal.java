@@ -1,6 +1,3 @@
-/**
- * Created by pengshuang on 17/2/22.
- */
 public class ConstructBinaryTreefromPreorderandInorderTraversal {
     private int findPosition(int[] arr, int start, int end, int key){
         for (int i = start; i <=end; i++) {
@@ -27,7 +24,7 @@ public class ConstructBinaryTreefromPreorderandInorderTraversal {
         return root;
     }
 
-    public TreeNode buildTree(int[] preorder, int[] inorder) {
+    public TreeNode buildTree(int[] inorder, int[] preorder) {
         if (inorder.length != preorder.length) {
             return null;
         }
