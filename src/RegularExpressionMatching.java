@@ -1,5 +1,28 @@
 /**
- * Created by pengshuang on 17/3/15.
+
+ D[i][j]: 表示string s中取i长度的字串，string p中取j长度字串，进行匹配。
+
+ 状态转移：
+
+ 1. j >= 2 && P[j - 1] = *，这时，我们可以选择匹配s中的空字串，或匹配无限个。
+
+ k: 在s中匹配的字符的个数
+
+ 所以转移式是：D[i][j] = D[i - k][j - 2] && isSame(s.charAt(i - k), p.charAt(j - 2))   (k: 1-i)
+
+ D[i - k][j - 2]  (k = 0)
+
+ 2. p最后一个字符不是*
+
+ 那么首先，s中至少还要有一个字符，然后再匹配一个字符，以及上一级也要匹配即可。
+
+ D[i][j] = i >= 1
+ && isSame(s.charAt(i - 1), p.charAt(j - 1))
+ && D[i - 1][j - 1];
+
+ 3. j = 0;
+
+ D[i][j] = i == 0;  (p为空，则s也是要为空才可以匹配）
  */
 public class RegularExpressionMatching {
     public boolean isMatch(String s, String p) {
