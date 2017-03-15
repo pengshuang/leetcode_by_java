@@ -1,9 +1,6 @@
 import java.util.HashMap;
 import java.util.Stack;
 
-/**
- * Created by pengshuang on 17/3/15.
- */
 public class NextGreaterElementI {
     public int[] nextGreaterElement(int[] findNums, int[] nums) {
         Stack<Integer> stack = new Stack<>();
