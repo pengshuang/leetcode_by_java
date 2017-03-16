@@ -19,6 +19,7 @@ public class SingleNumberIII {
             xor ^= nums[i];
         }
         int[] res = new int[2];
+        // 令lowbit = xor & -xor，lowbit的含义为xor从低位向高位，第一个非0位所对应的数字
         int lowbit = xor & -xor;
         for (int i=0;i<nums.length;i++){
             if ((nums[i] & lowbit)!=0){
