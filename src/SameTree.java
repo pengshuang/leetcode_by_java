@@ -13,7 +13,7 @@ public class SameTree {
         }
         if(p.val != q.val)
             return false;
-        return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+        return isSameTree2(p.left, q.left) && isSameTree2(p.right, q.right);
     }
 
     public boolean isSameTree2(TreeNode t1, TreeNode t2) {
