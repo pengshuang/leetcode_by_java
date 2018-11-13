@@ -21,10 +21,10 @@ public class RotateList {
         dummy.next = head;
         head = dummy;
 
-        ListNode tail = dummy;
         for (int i = 0; i < k; i++){
             head = head.next;
         }
+        ListNode tail = dummy;
         while (head.next != null){
             tail = tail.next;
             head = head.next;

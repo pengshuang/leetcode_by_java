@@ -41,7 +41,6 @@ public class MinimumDepthofBinaryTree {
                     q.offer(node.right);
                     count ++;
                 }
-
             }
         }
         return depth;

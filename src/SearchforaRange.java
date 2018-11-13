@@ -20,16 +20,16 @@ public class SearchforaRange {
             mid = left + ((right-left) / 2);
             if(A[mid] >= target){
                 right = mid;
-            }else{	//A[mid] >= target
+            }else{
                 left = mid;
             }
         }
-
         if(A[left] == target)
             return left;
         else if(A[right] == target)
             return right;
-        else return -1;
+        else
+            return -1;
     }
 
     private int binarySearchForLast(int[] A,int target){
@@ -37,7 +37,8 @@ public class SearchforaRange {
         int right = A.length-1;
         int mid;
         while(left + 1 < right){
-            mid = left + ((right-left) / 2);   //注意要加1
+            // 注意要加1
+            mid = left + ((right-left) / 2);
             if(A[mid] <= target){
                 left = mid;
             }else{	//A[mid] <= target 此处不能拆成两个条件
