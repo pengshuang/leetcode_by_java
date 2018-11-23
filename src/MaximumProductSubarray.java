@@ -23,6 +23,21 @@ public class MaximumProductSubarray {
         return result;
     }
 
+    public static int maxProduct2(int[] nums) {
+        int maxV = nums[0];
+        int minV = nums[0];
+        int res = nums[0];
+        int maxTemp, minTemp;
+        for (int i = 1; i < nums.length; i++) {
+            maxTemp = maxV * nums[i];
+            minTemp = minV * nums[i];
+            minV = Math.min(Math.min(maxTemp, minTemp), nums[i]);
+            maxV = Math.max(Math.max(maxTemp, minTemp), nums[i]);
+            res = Math.max(res, maxV);
+        }
+        return res;
+    }
+
     public static void main(String [] args) {
         System.out.println(maxProduct(new int[]{1,-2,3,4}));
     }
