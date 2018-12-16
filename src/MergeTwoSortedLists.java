@@ -1,6 +1,6 @@
 /**
  * Created by pengshuang on 17/1/6.
- * answer: 链表操作题,使用dummy head，简化操作
+ * answer: 链表操作题
  */
 public class MergeTwoSortedLists {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
