@@ -5,13 +5,10 @@
 import java.util.*;
 
 public class MostFrequentSubtreeSum {
-    Map<Integer, Integer> sumToCount;
-    int maxCount;
+    Map<Integer, Integer> sumToCount = new HashMap<>();
+    int maxCount = 0;
 
     public int[] findFrequentTreeSum(TreeNode root) {
-        maxCount = 0;
-        sumToCount = new HashMap<Integer, Integer>();
-
         postOrder(root);
 
         List<Integer> res = new ArrayList<>();
